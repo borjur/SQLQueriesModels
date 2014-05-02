@@ -1,0 +1,33 @@
+Boris Jurosevic
+CS 3550
+Assignment 12
+
+> use library
+> show dbs;
+
+> db.Actors.find();
+
+
+> var reduce = function(key, values) {
+
+var sum = 0;
+
+values.forEach(function(doc) {
+
+sum += 1;
+
+});
+
+return {Actors: sum};
+
+};
+
+
+> var count  = db.Actors.mapReduce(map, reduce, {out: "actors_results"});
+
+> db[count.result].find({"lastname": /.*a.*/}).sort({ lastname: 1 })
+
+
+
+
+
